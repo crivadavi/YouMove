@@ -1,84 +1,68 @@
 package android.vm.youmove;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.StringBuilderPrinter;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 /**
  * Created by Davide on 25/01/2017.
  */
 
-public class MainActivity extends Activity{
+public class MainActivity extends AppCompatActivity{
 
-    public static final String USERNAME_KEY = "username";
+    public static final String TRANSPORT = "mezzoDiTrasporto";
 
-    TextView welcomeTv;
-    Button changeButton;
-    //EditText changeTextEdit;
+    TextView chooseTv;
+    Button buttonBus;
+    Button buttonTrain;
+    Button buttonPlane;
     MainActivity activity = this;
-    //String username;
-    Spinner transportSpinner;
-    String itemSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        welcomeTv = (TextView) findViewById(R.id.welcome_tv);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
-        //changeTextEdit = (EditText) findViewById(R.id.change_text_edit);
+        chooseTv = (TextView) findViewById(R.id.choose_tv);
 
-        transportSpinner = (Spinner) findViewById(R.id.transport_spinner);
-
-        transportSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                itemSelected = (String) parent.getItemAtPosition(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                itemSelected = (String) parent.getItemAtPosition(0);
-            }
-        });
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.transport_array, android.R.layout.simple_spinner_item);
-
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Apply the adapter to the spinner
-        transportSpinner.setAdapter(adapter);
-
-        changeButton = (Button) findViewById(R.id.changeButton);
-
-        changeButton.setOnClickListener(new View.OnClickListener(){
+        buttonBus = (Button) findViewById(R.id.ButtonBus);
+        buttonBus.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                //welcomeTv.setText(changeTextEdit.getText());
-                //username = changeTextEdit.getText().toString();
-                Intent intent = new Intent(activity, SecondActivity.class);
-                intent.putExtra(USERNAME_KEY, itemSelected);
+                Intent intent = new Intent(activity, SearchActivity.class);
+                intent.putExtra(TRANSPORT, "Bus");
                 startActivity(intent);
             }
         });
 
+        buttonTrain = (Button) findViewById(R.id.ButtonTrain);
+        buttonTrain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, SearchActivity.class);
+                intent.putExtra(TRANSPORT, "Train");
+                startActivity(intent);
+            }
+        });
 
+        buttonPlane = (Button) findViewById(R.id.ButtonPlane);
+        buttonPlane.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, SearchActivity.class);
+                intent.putExtra(TRANSPORT, "Plane");
+                startActivity(intent);
+            }
+        });
 
     }
-
-
 
 }

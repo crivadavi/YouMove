@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">YouMove</string>
-    <string name="welcome">Seleziona mezzo di trasporto</string>
-    <string name="change_text">Invio</string>
-    <string name="change_text_edit">Inserisci testo</string>
+    <string name="choose_transport">Seleziona mezzo di trasporto</string>
+    <string name="choose_bus">AutoBus</string>
+    <string name="choose_train">Treno</string>
+    <string name="choose_plane">Aereo</string>
     <string name="show_students">Lista Studenti</string>
+    <string name="departure">Partenza: </string>
+    <string name="destination">Destinazione</string>
+    <string name="search">Cerca</string>
+    <string name="choose_date">Data_partenza</string>
 
     <string-array name="transport_array">
         <item>Aereo</item>

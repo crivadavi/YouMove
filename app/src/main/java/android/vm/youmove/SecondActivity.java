@@ -1,15 +1,17 @@
 package android.vm.youmove;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class SecondActivity extends Activity {
+public class SecondActivity extends AppCompatActivity {
 
     private static final String VM_COURSE = "VM Sviluppo";
     TextView nameTV;
@@ -23,10 +25,20 @@ public class SecondActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
+
         nameTV = (TextView) findViewById(R.id.name_tv);
 
         intent = getIntent();
-        username = intent.getStringExtra(MainActivity.USERNAME_KEY);
+        username = intent.getStringExtra(MainActivity.TRANSPORT);
 
         nameTV.setText("Hai selezionato: " + username);
 
@@ -39,7 +51,6 @@ public class SecondActivity extends Activity {
         fetchStudents();
 
         //adapter.setData(new ArrayList<ElementList>());
-
 
     }
 

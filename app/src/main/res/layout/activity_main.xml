@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+    android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <!--
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:gravity="center_horizontal" />
+    -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_transport"
+        android:id="@+id/choose_tv"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="60dp"/>
+
+    <!--
     <LinearLayout
         android:layout_width="342dp"
         android:layout_height="wrap_content"
@@ -20,13 +45,12 @@
             android:id="@+id/welcome_tv"
             android:gravity="center_vertical" />
 
-        <!--
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/change_text_edit"
             android:hint="@string/change_text_edit"/>
-        -->
+
 
         <Spinner
             android:id="@+id/transport_spinner"
@@ -34,16 +58,39 @@
             android:layout_height="match_parent" />
 
     </LinearLayout>
+     -->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text ="@string/choose_bus"
+        android:id="@+id/ButtonBus"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_train"
+        android:id="@+id/ButtonTrain"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/change_text"
-        android:id="@+id/changeButton"
+        android:text="@string/choose_plane"
+        android:id="@+id/ButtonPlane"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <!--
     <Button
