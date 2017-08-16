@@ -1,2 +1,4 @@
 Questa è un applicazione di prova per android
-altra modificadfdffdf
+sviluppata per usi didattici
+
+L'app è incompleta e non verrà aggiornata nel prossimo futuro
